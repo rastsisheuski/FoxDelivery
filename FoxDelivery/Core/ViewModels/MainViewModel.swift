@@ -12,8 +12,7 @@ class MainViewModel {
     let stepBack: Dynamic<Void> = Dynamic(Void())
     
     func checkAuthorization() {
-//        mainView.value = .login
-        mainView.value = .mainTabBar
+        mainView.value = .login
     }
 }
 

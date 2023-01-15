@@ -19,12 +19,18 @@ class TypesOfDishesView: UIView {
     // MARK: -
     // MARK: - Public Properties
     
-    let collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.backgroundColor = .clear
+        collection.showsHorizontalScrollIndicator = false
+        collection.contentInset.left = Constants.General.defaultSpacing
+        collection.contentInset.right = Constants.General.defaultSpacing
+        collection.register(TypesOfDishesCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: TypesOfDishesCollectionViewCell.self))
+        collection.delegate = self
+        collection.dataSource = self
         return collection
     }()
     
@@ -58,8 +64,6 @@ class TypesOfDishesView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        registerCell()
-        setupCollectionView()
         
         if firstAppear {
             setupView()
@@ -70,15 +74,6 @@ class TypesOfDishesView: UIView {
     
     // MARK: -
     // MARK: - Private Methods
-    
-    private func registerCell() {
-        collectionView.register(TypesOfDishesCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: TypesOfDishesCollectionViewCell.self))
-    }
-    
-    private func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-    }
     
     private func setupView() {
         backgroundColor = .clear
@@ -145,8 +140,8 @@ extension TypesOfDishesView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
-        self.selectedDishesType = dishesTypes[selectedIndexPath.row]
-        delegate?.getSelected(indexPath: selectedIndexPath, typeOfDishes: selectedDishesType)
+        self.selectedDishesType = dishesTypes[indexPath.row]
+        delegate?.getSelected(indexPath: indexPath, typeOfDishes: selectedDishesType)
         collectionView.reloadData()
     }
 }

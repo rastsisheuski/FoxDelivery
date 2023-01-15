@@ -51,6 +51,7 @@
 		9746555629631D4B00C148B4 /* AttributedStringWithLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746555529631D4B00C148B4 /* AttributedStringWithLink.swift */; };
 		9746555829631EE600C148B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9746555729631EE600C148B4 /* GoogleService-Info.plist */; };
 		9746555A2965CE4F00C148B4 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974655592965CE4F00C148B4 /* RegistrationViewModel.swift */; };
+		976DC77E29740C6300E482DB /* DishesCellAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DC77D29740C6300E482DB /* DishesCellAddButton.swift */; };
 		979EBF93296CB46800F1595C /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979EBF92296CB46800F1595C /* SpinnerViewController.swift */; };
 		979EBF95296CB47C00F1595C /* SpinnerViewControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979EBF94296CB47C00F1595C /* SpinnerViewControllerView.swift */; };
 		979EBF98296CBD0100F1595C /* DishesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979EBF97296CBD0100F1595C /* DishesViewController.swift */; };
@@ -108,6 +109,7 @@
 		9746555529631D4B00C148B4 /* AttributedStringWithLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringWithLink.swift; sourceTree = "<group>"; };
 		9746555729631EE600C148B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		974655592965CE4F00C148B4 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		976DC77D29740C6300E482DB /* DishesCellAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesCellAddButton.swift; sourceTree = "<group>"; };
 		979EBF92296CB46800F1595C /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		979EBF94296CB47C00F1595C /* SpinnerViewControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewControllerView.swift; sourceTree = "<group>"; };
 		979EBF97296CBD0100F1595C /* DishesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesViewController.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				9746553729630E6500C148B4 /* ConfirmRegistrationButton */,
 				9746553A29630E9C00C148B4 /* CheckBoxButton */,
 				9746555429631D3F00C148B4 /* AttributedStringWithLink */,
+				976DC77D29740C6300E482DB /* DishesCellAddButton.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				974655222962FBEC00C148B4 /* Colors.swift in Sources */,
 				9746554E29631C6500C148B4 /* RegistrationViewController.swift in Sources */,
 				97FC98AB2972EBA700710CAD /* TypesOfDishesView.swift in Sources */,
+				976DC77E29740C6300E482DB /* DishesCellAddButton.swift in Sources */,
 				9746555629631D4B00C148B4 /* AttributedStringWithLink.swift in Sources */,
 				974655202962FB5700C148B4 /* Constants.swift in Sources */,
 				974654FD2962F48300C148B4 /* APIManager.swift in Sources */,

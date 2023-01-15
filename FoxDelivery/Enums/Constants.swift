@@ -8,6 +8,11 @@
 import Foundation
 
 enum Constants {
+    // поменять
+    enum General {
+        static let defaultSpacing: CGFloat = 16
+    }
+    
     enum TabBar {
         static let tbBarHegiht: CGFloat = 83
     }

@@ -32,11 +32,15 @@ class DishesViewControllerView: UIView {
     
     let dishesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.backgroundColor = .clear
         collection.showsHorizontalScrollIndicator = false
+        collection.register(DishesCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: DishesCollectionViewCell.self))
+        collection.showsVerticalScrollIndicator = false
         return collection
     }()
     

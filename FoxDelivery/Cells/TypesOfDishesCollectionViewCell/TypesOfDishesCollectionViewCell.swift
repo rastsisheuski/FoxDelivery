@@ -12,7 +12,7 @@ class TypesOfDishesCollectionViewCell: UICollectionViewCell {
     // MARK: -
     // MARK: - Public Properties
     
-    let containerView: UIView = {
+    lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = Colors.TypesOfDishesCollectionVoewCell.containerViewBackgroundColor
@@ -63,7 +63,7 @@ class TypesOfDishesCollectionViewCell: UICollectionViewCell {
     
     func setupViewWith(typesOfDishes: TypesOfDishesEnum) {
         self.typeOfDishes = typesOfDishes
-        containerView.backgroundColor = self.isSelected ? Colors.TypeOfDish.selectedTypeOfDish : Colors.TypeOfDish.unselectedTypeOfDish
+        containerView.backgroundColor = isSelected ? Colors.TypeOfDish.selectedTypeOfDish : Colors.TypeOfDish.unselectedTypeOfDish
         dishLabel.text = typesOfDishes.russianTranslate
     }
     
