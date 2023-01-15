@@ -116,7 +116,6 @@ class LoginBottomView: KeyboardObserver {
     init(frame: CGRect) {
         super .init(scrollView: scrollView)
         
-        layoutElements()
     }
     
     required init?(coder: NSCoder) {
@@ -128,9 +127,13 @@ class LoginBottomView: KeyboardObserver {
         
         if firstAppear {
             setupView()
+            layoutElements()
             firstAppear = false
         }
     }
+    
+    // MARK: -
+    // MARK: - Public Methods
     
     func checkValidateState() {
         emailView.textField.checkValidStateOfTextField()

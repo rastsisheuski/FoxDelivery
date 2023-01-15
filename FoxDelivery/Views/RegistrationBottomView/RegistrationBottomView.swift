@@ -102,7 +102,7 @@ class RegistrationBottomView: UIView {
     // MARK: - LifeCycle
     
     override init(frame: CGRect) {
-        super .init(frame: frame)
+        super.init(frame: frame)
     }
     
     required init?(coder: NSCoder) {

@@ -47,4 +47,25 @@ enum Constants {
     enum TimerInterval {
         static let interval: Double = 1.5
     }
+    
+    enum TypesOfDishesView {
+        static let separatorLeadingConstraint: CGFloat = 16
+        static let separatorTrailingConstraint: CGFloat = 16
+        static let separatorTopConstraint: CGFloat = 16
+        static let separatorHeightConstraint: CGFloat = 0.5
+    }
+    
+    enum TypesOfDishesCollectionViewCell {
+        static let containerCornerRadius: CGFloat = 12
+        static let dishLabelFontSize: CGFloat = 13
+        static let containerViewTopConstraint: CGFloat = 5
+        static let containerViewBottomConstraint: CGFloat = 5
+    }
+    
+    enum DishesViewControllerView {
+        static let titleLabelFontSize: CGFloat = 25
+        static let baseTitleLabelConstraint: CGFloat = 16
+        static let typesOfDishesViewHeight: CGFloat = 60
+        static let typesOfDishesViewTopConstraint: CGFloat = 16
+    }
 }

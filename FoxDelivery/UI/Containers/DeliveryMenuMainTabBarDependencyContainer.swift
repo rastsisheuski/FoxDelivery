@@ -11,9 +11,9 @@ class DeliveryMenuMainTabBarDependencyContainer {
     
     func makeMainTabBarController() -> UITabBarController {
         
-//        let dishesViewController = {
-//            self.createDishesViewController()
-//        }
+        let dishesViewController = {
+            self.createDishesViewController()
+        }
 //
 //        let basketViewController = {
 //            self.createBasketViewController()
@@ -34,12 +34,13 @@ class DeliveryMenuMainTabBarDependencyContainer {
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
 //        tabBar.viewControllers = [dishesViewController(), basketViewController()]
+        tabBar.viewControllers = [dishesViewController()]
         return tabBar
     }
     
-//    private func createDishesViewController() -> DishesViewController {
-//        return DishesViewController()
-//    }
+    private func createDishesViewController() -> DishesViewController {
+        return DishesViewController()
+    }
     
 //    private func createBasketViewController() -> BasketViewController {
 //        return BasketViewController()

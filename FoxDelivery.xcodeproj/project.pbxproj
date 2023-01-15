@@ -55,6 +55,10 @@
 		979EBF95296CB47C00F1595C /* SpinnerViewControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979EBF94296CB47C00F1595C /* SpinnerViewControllerView.swift */; };
 		979EBF98296CBD0100F1595C /* DishesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979EBF97296CBD0100F1595C /* DishesViewController.swift */; };
 		979EBF9A296CBD1300F1595C /* DishesViewControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979EBF99296CBD1300F1595C /* DishesViewControllerView.swift */; };
+		97FC98AB2972EBA700710CAD /* TypesOfDishesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC98AA2972EBA700710CAD /* TypesOfDishesView.swift */; };
+		97FC98AE2972F47700710CAD /* TypesOfDishesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC98AD2972F47700710CAD /* TypesOfDishesEnum.swift */; };
+		97FC98B22972FC5700710CAD /* TypesOfDishesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC98B12972FC5700710CAD /* TypesOfDishesCollectionViewCell.swift */; };
+		97FC98B629733B0400710CAD /* DishesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC98B529733B0400710CAD /* DishesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +112,10 @@
 		979EBF94296CB47C00F1595C /* SpinnerViewControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewControllerView.swift; sourceTree = "<group>"; };
 		979EBF97296CBD0100F1595C /* DishesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesViewController.swift; sourceTree = "<group>"; };
 		979EBF99296CBD1300F1595C /* DishesViewControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesViewControllerView.swift; sourceTree = "<group>"; };
+		97FC98AA2972EBA700710CAD /* TypesOfDishesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesOfDishesView.swift; sourceTree = "<group>"; };
+		97FC98AD2972F47700710CAD /* TypesOfDishesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesOfDishesEnum.swift; sourceTree = "<group>"; };
+		97FC98B12972FC5700710CAD /* TypesOfDishesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesOfDishesCollectionViewCell.swift; sourceTree = "<group>"; };
+		97FC98B529733B0400710CAD /* DishesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesCollectionViewCell.swift; sourceTree = "<group>"; };
 		BAC39E90F65C5090857FF14C /* Pods-FoxDelivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoxDelivery.release.xcconfig"; path = "Target Support Files/Pods-FoxDelivery/Pods-FoxDelivery.release.xcconfig"; sourceTree = "<group>"; };
 		BFA41414D6DDA90604CB97A8 /* Pods-FoxDelivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoxDelivery.debug.xcconfig"; path = "Target Support Files/Pods-FoxDelivery/Pods-FoxDelivery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +161,7 @@
 		974654DF2962F24700C148B4 /* FoxDelivery */ = {
 			isa = PBXGroup;
 			children = (
+				97FC98AC2972F42A00710CAD /* Enums */,
 				9746552B2962FC9200C148B4 /* Extensions */,
 				974654F52962F36500C148B4 /* Core */,
 				974654F92962F40100C148B4 /* Main */,
@@ -160,6 +169,7 @@
 				974655092962F89800C148B4 /* General */,
 				974655072962F81300C148B4 /* Controllers */,
 				974655082962F88A00C148B4 /* Views */,
+				97FC98B02972FC2D00710CAD /* Cells */,
 				974654FE2962F53700C148B4 /* Models */,
 				974654FB2962F46800C148B4 /* Managers */,
 				974654F42962F33F00C148B4 /* Storyboard */,
@@ -266,6 +276,7 @@
 		974655082962F88A00C148B4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				97FC98A92972EB7A00710CAD /* TypesOfDishesView */,
 				9746555129631CF400C148B4 /* RegistrationBottomView */,
 				9746554029630EF600C148B4 /* LoginBottomView */,
 				9746553D29630EC100C148B4 /* AuthTextFieldView */,
@@ -276,16 +287,13 @@
 		974655092962F89800C148B4 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				9746551F2962FB5700C148B4 /* Constants.swift */,
-				974655212962FBEC00C148B4 /* Colors.swift */,
-				974655232962FC1300C148B4 /* Icons.swift */,
-				974655262962FC3300C148B4 /* Images.swift */,
+				97FC98AF2972F53000710CAD /* KeyBoardObserver */,
+				9746554329630F3500C148B4 /* KeyboardObserver.swift */,
 				9746550C2962F90500C148B4 /* NiblessViewController */,
 				9746553629630E3000C148B4 /* AuthTextField */,
 				9746553729630E6500C148B4 /* ConfirmRegistrationButton */,
 				9746553A29630E9C00C148B4 /* CheckBoxButton */,
 				9746555429631D3F00C148B4 /* AttributedStringWithLink */,
-				9746554329630F3500C148B4 /* KeyboardObserver.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -421,6 +429,58 @@
 			path = DishesViewcontroller;
 			sourceTree = "<group>";
 		};
+		97FC98A92972EB7A00710CAD /* TypesOfDishesView */ = {
+			isa = PBXGroup;
+			children = (
+				97FC98AA2972EBA700710CAD /* TypesOfDishesView.swift */,
+			);
+			path = TypesOfDishesView;
+			sourceTree = "<group>";
+		};
+		97FC98AC2972F42A00710CAD /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				97FC98AD2972F47700710CAD /* TypesOfDishesEnum.swift */,
+				9746551F2962FB5700C148B4 /* Constants.swift */,
+				974655212962FBEC00C148B4 /* Colors.swift */,
+				974655232962FC1300C148B4 /* Icons.swift */,
+				974655262962FC3300C148B4 /* Images.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		97FC98AF2972F53000710CAD /* KeyBoardObserver */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = KeyBoardObserver;
+			sourceTree = "<group>";
+		};
+		97FC98B02972FC2D00710CAD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				97FC98B429733AE600710CAD /* DishesCollectionViewCell */,
+				97FC98B32972FC5A00710CAD /* TypesOfDishesCollectionViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		97FC98B32972FC5A00710CAD /* TypesOfDishesCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				97FC98B12972FC5700710CAD /* TypesOfDishesCollectionViewCell.swift */,
+			);
+			path = TypesOfDishesCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		97FC98B429733AE600710CAD /* DishesCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				97FC98B529733B0400710CAD /* DishesCollectionViewCell.swift */,
+			);
+			path = DishesCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		C79828C87B7F2C623B5386AB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,8 +611,10 @@
 				9746552D2962FCC400C148B4 /* Extension + UIView.swift in Sources */,
 				974655162962F99600C148B4 /* Dynamic.swift in Sources */,
 				979EBF93296CB46800F1595C /* SpinnerViewController.swift in Sources */,
+				97FC98AE2972F47700710CAD /* TypesOfDishesEnum.swift in Sources */,
 				974655222962FBEC00C148B4 /* Colors.swift in Sources */,
 				9746554E29631C6500C148B4 /* RegistrationViewController.swift in Sources */,
+				97FC98AB2972EBA700710CAD /* TypesOfDishesView.swift in Sources */,
 				9746555629631D4B00C148B4 /* AttributedStringWithLink.swift in Sources */,
 				974655202962FB5700C148B4 /* Constants.swift in Sources */,
 				974654FD2962F48300C148B4 /* APIManager.swift in Sources */,
@@ -575,12 +637,14 @@
 				9746555A2965CE4F00C148B4 /* RegistrationViewModel.swift in Sources */,
 				9746553929630E7B00C148B4 /* ConfirmRegistrationButton.swift in Sources */,
 				9746551B2962FA0400C148B4 /* LoginViewModel.swift in Sources */,
+				97FC98B22972FC5700710CAD /* TypesOfDishesCollectionViewCell.swift in Sources */,
 				974655002962F55F00C148B4 /* UserModel.swift in Sources */,
 				9746550E2962F91600C148B4 /* NiblessViewcontroller.swift in Sources */,
 				9746553C29630EAB00C148B4 /* CheckBoxButton.swift in Sources */,
 				9746551D2962FB1A00C148B4 /* LoginViewControllerView.swift in Sources */,
 				9746552F2962FCEA00C148B4 /* Extension + Optional.swift in Sources */,
 				9746550B2962F8C100C148B4 /* LoginViewController.swift in Sources */,
+				97FC98B629733B0400710CAD /* DishesCollectionViewCell.swift in Sources */,
 				974654E32962F24700C148B4 /* SceneDelegate.swift in Sources */,
 				9746553529630E2D00C148B4 /* AuthTextField.swift in Sources */,
 				9746554729631A1600C148B4 /* DeliveryMenuDependencyContainer.swift in Sources */,
