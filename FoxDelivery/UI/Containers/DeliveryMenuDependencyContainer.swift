@@ -16,7 +16,7 @@ class DeliveryMenuDepentencyContainer {
         let sharedAPIManager = createAPIManager()
         
         let loginViewControllerFactory = {
-            self.makeLoginViewController(navigationRespnoder: sharedViewModel, authManager: sharedAuthManager)
+            self.makeLoginViewController(navigationRespnoder: sharedViewModel, authManager: sharedAuthManager, apiManager: sharedAPIManager)
         }
         
         let registrationViewControllerFactory = {
@@ -30,13 +30,13 @@ class DeliveryMenuDepentencyContainer {
         return MainViewController(viewModel: sharedViewModel, loginViewControllerFactory: loginViewControllerFactory, registrationViewControllerFactory: registrationViewControllerFactory, mainTabBarControllerFactory: mainTabBarControllerFactory)
     }
     
-    private func makeLoginViewController(navigationRespnoder: MainResponder, authManager: AuthManager) -> LoginViewController {
-        let viewModel = makeLoginViewModel(authManager: authManager)
+    private func makeLoginViewController(navigationRespnoder: MainResponder, authManager: AuthManager, apiManager: APIManager) -> LoginViewController {
+        let viewModel = makeLoginViewModel(authManager: authManager, apiManager: apiManager)
         return LoginViewController(viewModel: viewModel, navigationResponer: navigationRespnoder)
     }
     
-    private func makeLoginViewModel(authManager: AuthManager) -> LoginViewModel {
-        return LoginViewModel(authManager: authManager)
+    private func makeLoginViewModel(authManager: AuthManager, apiManager: APIManager) -> LoginViewModel {
+        return LoginViewModel(authManager: authManager, apiManager: apiManager)
     }
     
     private func makeRegistrationViewController(authManager: AuthManager, apiManager: APIManager,  navigationStepBackResponder: NavigationStepBackResponder) -> RegistrationViewController {

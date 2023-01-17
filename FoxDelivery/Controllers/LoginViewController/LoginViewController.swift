@@ -69,6 +69,7 @@ extension LoginViewController {
         contentView.bottomView.checkValidateState()
         guard let loginUser = createLoginUser() else { return }
         viewModel.signIn(loginUser: loginUser)
+//        viewModel.setUserData(currentUser: loginUser)
     }
     
     @objc private func registrationButtonWasPressed() {

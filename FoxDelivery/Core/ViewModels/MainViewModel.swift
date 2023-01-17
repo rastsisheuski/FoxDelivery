@@ -6,13 +6,22 @@
 //
 
 import UIKit
+import Firebase
 
 class MainViewModel {
     let mainView: Dynamic<MainView?> = Dynamic(nil)
     let stepBack: Dynamic<Void> = Dynamic(Void())
     
     func checkAuthorization() {
-        mainView.value = .login
+        
+        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+            guard let self else { return }
+            if user != nil {
+                self.mainView.value = .mainTabBar
+            } else {
+                self.mainView.value = .login
+            }
+        }
     }
 }
 
