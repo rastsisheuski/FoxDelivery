@@ -11,7 +11,7 @@ import UIKit
 // MARK: - Protocols
 
 protocol TypesOfDishesViewDelegate: AnyObject {
-    func getSelected(indexPath: IndexPath, typeOfDishes: TypesOfDishesEnum)
+    func getSelected(indexPath: IndexPath)
 }
 
 class TypesOfDishesView: UIView {
@@ -37,9 +37,14 @@ class TypesOfDishesView: UIView {
     let separatorView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Colors.TypesOfDishesView.separatorViewBackgroundColor
+        view.backgroundColor = Colors.General.lightGrayColor
         return view
     }()
+    
+    // MARK: -
+    // MARK: - Public Properties
+    
+    weak var delegate: TypesOfDishesViewDelegate?
     
     // MARK: -
     // MARK: - Private Properties
@@ -48,8 +53,6 @@ class TypesOfDishesView: UIView {
     private var dishesTypes = TypesOfDishesEnum.allCases
     private var selectedIndexPath = IndexPath(row: 0, section: 0)
     private var selectedDishesType: TypesOfDishesEnum = .kishes
-    
-    weak var delegate: TypesOfDishesViewDelegate?
     
     // MARK: -
     // MARK: - LifeCycle
@@ -97,9 +100,9 @@ class TypesOfDishesView: UIView {
         addSubview(separatorView)
         NSLayoutConstraint.activate([
             separatorView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            separatorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.TypesOfDishesView.separatorTrailingConstraint),
-            separatorView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.TypesOfDishesView.separatorLeadingConstraint),
-            separatorView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: Constants.TypesOfDishesView.separatorTopConstraint),
+            separatorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.General.defaultSpacing),
+            separatorView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.General.defaultSpacing),
+            separatorView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: Constants.General.defaultSpacing),
             separatorView.heightAnchor.constraint(equalToConstant: Constants.TypesOfDishesView.separatorHeightConstraint)
         ])
     }
@@ -141,7 +144,7 @@ extension TypesOfDishesView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
         self.selectedDishesType = dishesTypes[indexPath.row]
-        delegate?.getSelected(indexPath: indexPath, typeOfDishes: selectedDishesType)
+        delegate?.getSelected(indexPath: indexPath)
         collectionView.reloadData()
     }
 }

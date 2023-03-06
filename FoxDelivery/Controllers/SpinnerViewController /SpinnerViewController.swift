@@ -8,9 +8,16 @@
 import Foundation
 
 class SpinnerViewController: NiblessViewController {
-    var contentView: SpinnerViewControllerView {
+    
+    // MARK: -
+    // MARK: - Private Properties
+    
+    private var contentView: SpinnerViewControllerView {
         view as! SpinnerViewControllerView
     }
+    
+    // MARK: -
+    // MARK: - LifeCycle
     
     override func loadView() {
         super.loadView()

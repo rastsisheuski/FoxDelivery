@@ -14,6 +14,9 @@ enum Colors {
         static let unSelectedButton: UIColor = #colorLiteral(red: 0.7529411765, green: 0.7529411765, blue: 0.7529411765, alpha: 1)
         static let placeholderText: UIColor = UIColor.lightGray
         static let placeholderBackground: UIColor = #colorLiteral(red: 0.2156862745, green: 0.2156862745, blue: 0.2235294118, alpha: 1)
+        static let lightGrayColor: UIColor = UIColor.lightGray
+        static let blackColor: UIColor = UIColor.black
+        static let whiteColor: UIColor = UIColor.white
     }
     
     enum SpinnerView {
@@ -39,15 +42,15 @@ enum Colors {
         static let confirmButtonTextColor = #colorLiteral(red: 0.2588235294, green: 0.2549019608, blue: 0.2784313725, alpha: 1)
     }
     
-    enum TypesOfDishesView {
-        static let separatorViewBackgroundColor: UIColor = UIColor.lightGray
-    }
-    
-    enum TypesOfDishesCollectionVoewCell {
-        static let containerViewBackgroundColor: UIColor = UIColor.lightGray
-    }
-    
     enum DishesViewControllerView {
         static let viewBackgroundColor: UIColor = #colorLiteral(red: 0.1215686275, green: 0.1176470588, blue: 0.1411764706, alpha: 1)
+    }
+    
+    enum BasketViewControllerView {
+        static let viewBackgroundColor: UIColor = #colorLiteral(red: 0.1215686275, green: 0.1176470588, blue: 0.1411764706, alpha: 1)
+    }
+    
+    enum basketItemView {
+        static let backgroundColor: UIColor = #colorLiteral(red: 0.2588235294, green: 0.2549019608, blue: 0.2784313725, alpha: 1)
     }
 }

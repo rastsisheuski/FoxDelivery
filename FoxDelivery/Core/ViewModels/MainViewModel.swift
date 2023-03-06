@@ -14,14 +14,16 @@ class MainViewModel {
     
     func checkAuthorization() {
         
-        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
-            guard let self else { return }
-            if user != nil {
-                self.mainView.value = .mainTabBar
-            } else {
-                self.mainView.value = .login
-            }
-        }
+//        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+//            guard let self else { return }
+//            if user != nil {
+//                self.mainView.value = .mainTabBar
+//            } else {
+//                self.mainView.value = .login
+//            }
+//        }
+        
+        self.mainView.value = .mainTabBar
     }
 }
 

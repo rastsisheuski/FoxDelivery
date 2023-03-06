@@ -15,7 +15,7 @@ class TypesOfDishesCollectionViewCell: UICollectionViewCell {
     lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Colors.TypesOfDishesCollectionVoewCell.containerViewBackgroundColor
+        view.backgroundColor = Colors.General.lightGrayColor
         view.layer.cornerRadius = Constants.TypesOfDishesCollectionViewCell.containerCornerRadius
         view.clipsToBounds = true
         return view

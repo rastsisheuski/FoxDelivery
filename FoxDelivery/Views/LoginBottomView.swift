@@ -115,7 +115,6 @@ class LoginBottomView: KeyboardObserver {
     
     init(frame: CGRect) {
         super .init(scrollView: scrollView)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -169,8 +168,8 @@ class LoginBottomView: KeyboardObserver {
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -16)
+            titleLabel.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: Constants.General.defaultSpacing),
+            titleLabel.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -Constants.General.defaultSpacing)
         ])
     }
     
@@ -182,8 +181,8 @@ class LoginBottomView: KeyboardObserver {
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            stackView.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -16),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: Constants.General.defaultSpacing),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -Constants.General.defaultSpacing),
             stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
@@ -192,8 +191,8 @@ class LoginBottomView: KeyboardObserver {
         scrollView.addSubview(forgotPasswordButton)
         
         NSLayoutConstraint.activate([
-            forgotPasswordButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
-            forgotPasswordButton.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant:  -16),
+            forgotPasswordButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: Constants.General.defaultSpacing),
+            forgotPasswordButton.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant:  -Constants.General.defaultSpacing),
             forgotPasswordButton.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
@@ -203,8 +202,8 @@ class LoginBottomView: KeyboardObserver {
         
         NSLayoutConstraint.activate([
             enterButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor, constant: 16),
-            enterButton.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: 16),
-            enterButton.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -16)
+            enterButton.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: Constants.General.defaultSpacing),
+            enterButton.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -Constants.General.defaultSpacing)
         ])
     }
     
@@ -215,9 +214,9 @@ class LoginBottomView: KeyboardObserver {
         horizontalStackView.addArrangedSubview(registrationButton)
         
         NSLayoutConstraint.activate([
-            horizontalStackView.topAnchor.constraint(equalTo: enterButton.bottomAnchor, constant: 16),
-            horizontalStackView.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: 16),
-            horizontalStackView.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -16)
+            horizontalStackView.topAnchor.constraint(equalTo: enterButton.bottomAnchor, constant: Constants.General.defaultSpacing),
+            horizontalStackView.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: Constants.General.defaultSpacing),
+            horizontalStackView.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -Constants.General.defaultSpacing)
         ])
     }
 }

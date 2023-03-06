@@ -86,9 +86,9 @@ class DishesViewControllerView: UIView {
     private func layoutTitleLabel() {
         addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constants.DishesViewControllerView.baseTitleLabelConstraint),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.DishesViewControllerView.baseTitleLabelConstraint),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.DishesViewControllerView.baseTitleLabelConstraint),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constants.General.defaultSpacing),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.General.defaultSpacing),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.General.defaultSpacing),
         ])
     }
     
@@ -96,7 +96,7 @@ class DishesViewControllerView: UIView {
         addSubview(typesOfDishesView)
         NSLayoutConstraint.activate([
             typesOfDishesView.heightAnchor.constraint(equalToConstant: Constants.DishesViewControllerView.typesOfDishesViewHeight),
-            typesOfDishesView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.DishesViewControllerView.typesOfDishesViewTopConstraint),
+            typesOfDishesView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.General.defaultSpacing),
             typesOfDishesView.trailingAnchor.constraint(equalTo: trailingAnchor),
             typesOfDishesView.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
@@ -111,5 +111,4 @@ class DishesViewControllerView: UIView {
             dishesCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-    
 }

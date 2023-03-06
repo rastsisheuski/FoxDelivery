@@ -9,12 +9,21 @@ import UIKit
 
 class RegistrationViewController: NiblessViewController {
     
+    // MARK: -
+    // MARK: - Private Properties
+    
+    private var contentView: RegistrationViewControllerView {
+        view as! RegistrationViewControllerView
+    }
+    
+    // MARK: -
+    // MARK: - Public Properties
+    
     let navigationStepBackResponder: NavigationStepBackResponder
     let viewModel: RegistrationViewModel
     
-    var contentView: RegistrationViewControllerView {
-        view as! RegistrationViewControllerView
-    }
+    // MARK: -
+    // MARK: - LifeCycle
     
     init(viewModel: RegistrationViewModel ,navigationStepBackResponder: NavigationStepBackResponder) {
         self.viewModel = viewModel
@@ -34,6 +43,9 @@ class RegistrationViewController: NiblessViewController {
         hideKeyboardWhenTappedAround()
         setupTargets()
     }
+    
+    // MARK: -
+    // MARK: - Private Methods
     
     private func bindViewModel() {
         viewModel.registrationComplite.bind { [weak self] error in
@@ -72,12 +84,16 @@ class RegistrationViewController: NiblessViewController {
     }
 }
 
+// MARK: -
+// MARK: - Extension RegistrationViewController + @Objc Methods
+
 extension RegistrationViewController {
     @objc private func confirmButtonWasPressed() {
         contentView.bottomView.checkisValidFields()
         
         guard let user = createUserModel() else { return }
         viewModel.registrationUser(userModel: user)
+//        viewModel.setUserData(currentUser: loginUser)
     }
             
     @objc private func backButtonWasPressed() {

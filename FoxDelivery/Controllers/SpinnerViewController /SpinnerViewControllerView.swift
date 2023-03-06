@@ -38,23 +38,19 @@ class SpinnerViewControllerView: UIView {
     // MARK: - Private Methods
     
     private func layoutElements() {
-        layoutView()
         layoutActivityIndicator()
     }
     
     private func setupView() {
-        self.backgroundColor = Colors.SpinnerView.mainColorWithAlpha
-    }
-    
-    private func layoutView() {
-        self.fillSuperview()
+        backgroundColor = Colors.SpinnerView.mainColorWithAlpha
+        
     }
     
     private func layoutActivityIndicator() {
         addSubview(activityIndicator)
         NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }

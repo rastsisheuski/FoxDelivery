@@ -9,7 +9,13 @@ import UIKit
 
 class KeyboardObserver: UIView {
     
+    // MARK: -
+    // MARK: - Public properties
+    
     var scroll = UIScrollView()
+    
+    // MARK: -
+    // MARK: - Lifecycle
     
     init(scrollView: UIScrollView) {
         super .init(frame: .zero)
@@ -22,11 +28,17 @@ class KeyboardObserver: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: -
+    // MARK: - Private Methods
+    
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }
+
+// MARK: -
+// MARK: - Extension KeyboardObserver + @objc Methods
 
 extension KeyboardObserver {
     @objc func keyboardWillShow(notification:NSNotification){

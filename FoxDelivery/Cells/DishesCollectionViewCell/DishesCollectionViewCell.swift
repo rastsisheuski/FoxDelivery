@@ -5,24 +5,30 @@
 //  Created by Hleb Rastsisheuski on 14.01.23.
 //
 
+protocol DishesCollectionViewCellDelegate: AnyObject {
+    func didAddButtonTap(id: String, state: DishesCellAddButtonState)
+}
+
 import UIKit
+import SDWebImage
 
 class DishesCollectionViewCell: UICollectionViewCell {
     
     // MARK: -
     // MARK: - Public Properties
     
-    private let dishImageView: UIImageView = {
+    let dishImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = Images.defaultDishImage.image
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     let mainView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .red
+        view.backgroundColor = Colors.TypeOfDish.unselectedTypeOfDish
         return view
     }()
     
@@ -30,10 +36,10 @@ class DishesCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = "Киш с курицей и грибами"
+        label.textColor = Colors.General.whiteColor
         label.textAlignment = .center
         label.numberOfLines = 2
-        label.adjustsFontSizeToFitWidth = true
+//        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -41,7 +47,7 @@ class DishesCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "610 гр / 30 см"
+        label.textColor = Colors.General.lightGrayColor
         label.textAlignment = .center
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
@@ -52,7 +58,7 @@ class DishesCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        label.text = "200 ₽."
+        label.textColor = Colors.General.whiteColor
         label.textAlignment = .center
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
@@ -60,23 +66,78 @@ class DishesCollectionViewCell: UICollectionViewCell {
     }()
     
     let addButton: DishesCellAddButton = {
-        let button = DishesCellAddButton()
+        let button = DishesCellAddButton(frame: .zero, currentState: .disactive)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .green
+        button.backgroundColor = Colors.TypeOfDish.selectedTypeOfDish
+        button.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        layoutElements()
-    }
+    // MARK: -
+    // MARK: - Public Properties
+    
+    weak var delegate: DishesCollectionViewCellDelegate?
     
     // MARK: -
     // MARK: - Private Properties
     
+    private var selectedModel: DishModel?
+    private var firstAppear = true
+    
+    // MARK: -
+    // MARK: - LifeCycle
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addButton.addTarget(self, action: #selector(addButtonWasPressed(sender:)), for: .touchUpInside)
+        layoutElements()
+        setupUI()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        addButton.currentState = .disactive
+    }
+    
+    // MARK: -
+    // MARK: - Public Methods
+    
+    func set(for selectedModel: DishModel, imageURL: URL?, isInBasket: Bool) {
+        self.selectedModel = selectedModel
+        
+        dishNameLabel.text = selectedModel.name
+        descriptionLabel.text = selectedModel.weightOrVolume
+        priceLabel.text = "\(selectedModel.price) ₽."
+        
+        setupImageView(with: imageURL)
+        
+        if isInBasket {
+            addButton.currentState = .active
+        } else {
+            addButton.currentState = .disactive
+        }
+    }
+    
+    @objc private func addButtonWasPressed(sender: DishesCellAddButton) {
+        guard let id = selectedModel?.id else {  return }
+        delegate?.didAddButtonTap(id: id, state: sender.currentState)
+        sender.changeButtonState()
+    }
+    
+    // MARK: -
+    // MARK: - Private Methods
+    
+    private func setupUI() {
+        mainView.layer.cornerRadius = 12
+        mainView.clipsToBounds = true
+    }
+    
+    private func setupImageView(with url: URL?) {
+        self.dishImageView.sd_setImage(with: url, placeholderImage: Images.defaultDishImage.image)
     }
     
     private func layoutElements() {

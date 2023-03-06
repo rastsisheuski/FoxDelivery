@@ -14,7 +14,7 @@ enum Constants {
     }
     
     enum TabBar {
-        static let tbBarHegiht: CGFloat = 83
+        static let tabBarHeight: CGFloat = 83
     }
     
     enum InputView {
@@ -26,9 +26,6 @@ enum Constants {
     }
     
     enum AuthTextField {
-        static let textFieldVerticalPadding: CGFloat = 16
-        static let textFieldHorizontalPadding: CGFloat = 16
-        static let placeholderFontSize: CGFloat = 16
         static let errorLabelFontSize: CGFloat = 10
         static let animationTime: Double = 0.5
     }
@@ -54,9 +51,6 @@ enum Constants {
     }
     
     enum TypesOfDishesView {
-        static let separatorLeadingConstraint: CGFloat = 16
-        static let separatorTrailingConstraint: CGFloat = 16
-        static let separatorTopConstraint: CGFloat = 16
         static let separatorHeightConstraint: CGFloat = 0.5
     }
     
@@ -69,8 +63,27 @@ enum Constants {
     
     enum DishesViewControllerView {
         static let titleLabelFontSize: CGFloat = 25
-        static let baseTitleLabelConstraint: CGFloat = 16
         static let typesOfDishesViewHeight: CGFloat = 60
-        static let typesOfDishesViewTopConstraint: CGFloat = 16
+    }
+    
+    enum DishesViewcontroller {
+        static let collectionViewCellHeightMultiplier = 1.75
+    }
+    
+    enum MovingBasketView {
+        static let hookViewWidth: CGFloat = 30
+        static let hookViewHeight: CGFloat = 2
+        static let hookViewTopConstraint: CGFloat = 5
+        static let tableViewTopConstraint: CGFloat = 10
+        static let orderButtonBottomConstraint: CGFloat = 83
+    }
+    
+    enum CustomBasketItemView {
+        static let imageWidth: CGFloat = 80
+    }
+    
+    enum BasketTableViewCell {
+        static let mainViewLeadingAndTrailingPConstraints: CGFloat = 20
+        static let mainViewTopAndBottomConstraints: CGFloat = 10
     }
 }

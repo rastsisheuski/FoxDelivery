@@ -9,12 +9,21 @@ import Foundation
 
 class LoginViewController: NiblessViewController {
     
+    // MARK: -
+    // MARK: - Private Properties
+    
+    private var contentView: LoginViewControllerView {
+        view as! LoginViewControllerView
+    }
+    
+    // MARK: -
+    // MARK: - Public Properties
+    
     let viewModel: LoginViewModel
     let navigationResponer: MainResponder
     
-    var contentView: LoginViewControllerView {
-        view as! LoginViewControllerView
-    }
+    // MARK: -
+    // MARK: - LifeCycle
     
     init(viewModel: LoginViewModel, navigationResponer: MainResponder) {
         self.viewModel = viewModel
@@ -35,6 +44,9 @@ class LoginViewController: NiblessViewController {
         setupTargets()
         bindViewModel()
     }
+    
+    // MARK: -
+    // MARK: - Private Methods
     
     private func bindViewModel() {
         viewModel.signInResponce.bind { [weak self] error in
@@ -64,12 +76,14 @@ class LoginViewController: NiblessViewController {
     }
 }
 
+// MARK: -
+// MARK: - Extension LoginViewController + @Objc Methods
+
 extension LoginViewController {
     @objc private func wasEnterButtonTapped() {
         contentView.bottomView.checkValidateState()
         guard let loginUser = createLoginUser() else { return }
         viewModel.signIn(loginUser: loginUser)
-//        viewModel.setUserData(currentUser: loginUser)
     }
     
     @objc private func registrationButtonWasPressed() {

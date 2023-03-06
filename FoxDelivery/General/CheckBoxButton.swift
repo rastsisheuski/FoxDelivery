@@ -9,6 +9,9 @@ import UIKit
 
 class CheckBoxButton: UIButton {
     
+    // MARK: -
+    // MARK: - Public Properties
+    
     override var isSelected: Bool {
         didSet {
             
@@ -22,6 +25,9 @@ class CheckBoxButton: UIButton {
         
         setupCheckBox()
     }
+    
+    // MARK: -
+    // MARK: - Lifecycle
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -40,6 +46,9 @@ class CheckBoxButton: UIButton {
         addTarget(self, action: #selector(didAddButtonTapped), for: .touchUpInside)
     }
 }
+
+// MARK: -
+// MARK: - Extension CheckBoxButton + @objc Methods
 
 extension CheckBoxButton {
     @objc private func didAddButtonTapped() {

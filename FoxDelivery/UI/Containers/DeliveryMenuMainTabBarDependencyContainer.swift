@@ -11,13 +11,15 @@ class DeliveryMenuMainTabBarDependencyContainer {
     
     func makeMainTabBarController() -> UITabBarController {
         
+        let sharedAPIManager: APIManager = createAPIManager()
+        
         let dishesViewController = {
-            self.createDishesViewController()
+            self.createDishesViewController(apiManager: sharedAPIManager)
         }
-//
-//        let basketViewController = {
-//            self.createBasketViewController()
-//        }
+
+        let basketViewController = {
+            self.createBasketViewController(apiManager: sharedAPIManager)
+        }
         
         let tabBar = UITabBarController()
         let appearance = UITabBarAppearance()
@@ -33,17 +35,51 @@ class DeliveryMenuMainTabBarDependencyContainer {
         
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
-//        tabBar.viewControllers = [dishesViewController(), basketViewController()]
-        tabBar.viewControllers = [dishesViewController()]
+        tabBar.viewControllers = [
+            createTabBarItem(
+                for: dishesViewController(),
+                withTitle: MainTabBarItems.menu.name,
+                withImage: MainTabBarItems.menu.image,
+                withTag: 0
+            ),
+            createTabBarItem(
+                for: basketViewController(),
+                withTitle: MainTabBarItems.basket.name,
+                withImage: MainTabBarItems.basket.image,
+                withTag: 1
+            )
+        ]
         return tabBar
     }
     
-    private func createDishesViewController() -> DishesViewController {
-        return DishesViewController()
+    private func createDishesViewController(apiManager: APIManager) -> DishesViewController {
+        let viewModel = createDishesViewModel(apiManager: apiManager)
+        return DishesViewController(viewModel: viewModel)
     }
     
-//    private func createBasketViewController() -> BasketViewController {
-//        return BasketViewController()
-//    }
+    private func createBasketViewController(apiManager: APIManager) -> BasketViewController {
+        let viewModel = createBasketViewModel(apiManager: apiManager)
+        return BasketViewController(viewModel: viewModel)
+    }
+    
+    private func createDishesViewModel(apiManager: APIManager) -> DishesViewModel {
+        return DishesViewModel(apiManager: apiManager)
+    }
+    
+    private func createBasketViewModel(apiManager: APIManager) -> BasketViewModel {
+        return BasketViewModel(apiManager: apiManager)
+    }
+    
+    private func createAPIManager() -> APIManager {
+        return APIManager()
+    }
+    
+    private func createTabBarItem(for vc: UIViewController, withTitle: String, withImage: UIImage, withTag: Int) -> UINavigationController {
+        let navVC = UINavigationController()
+        navVC.navigationBar.isHidden = true
+        vc.tabBarItem = UITabBarItem(title: withTitle, image: withImage, tag: withTag)
+        navVC.viewControllers = [vc]
+        return navVC
+    }
 }
 

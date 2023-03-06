@@ -22,10 +22,10 @@ class AuthTextField: UITextField {
     private var placeholderText = ""
     
     private let padding = UIEdgeInsets(
-        top: Constants.AuthTextField.textFieldVerticalPadding,
-        left: Constants.AuthTextField.textFieldHorizontalPadding,
-        bottom: Constants.AuthTextField.textFieldVerticalPadding,
-        right: Constants.AuthTextField.textFieldHorizontalPadding
+        top: Constants.General.defaultSpacing,
+        left: Constants.General.defaultSpacing,
+        bottom: Constants.General.defaultSpacing,
+        right: Constants.General.defaultSpacing
     )
     
     // MARK: -
@@ -67,7 +67,7 @@ class AuthTextField: UITextField {
     }
     
     // MARK: -
-    // MARK: - Private Methods
+    // MARK: - Public Methods
     
     func set(type: ValidationType) {
         self.type = type
@@ -81,9 +81,12 @@ class AuthTextField: UITextField {
         isValid ? setValidState() : setInvalidateState()
     }
     
+    // MARK: -
+    // MARK: - Private Methods
+    
     private func setupAtributtedPlaceholder() {
         let attributes = [NSAttributedString.Key.foregroundColor: Colors.General.placeholderText,
-                          NSAttributedString.Key.font: UIFont.systemFont(ofSize: Constants.AuthTextField.placeholderFontSize)
+                          NSAttributedString.Key.font: UIFont.systemFont(ofSize: Constants.General.defaultSpacing)
         ]
         let attributedPlaceholderString = NSAttributedString(string: placeholderText, attributes: attributes)
         attributedPlaceholder = attributedPlaceholderString
@@ -159,6 +162,8 @@ extension AuthTextField {
         }
     }
 }
+// MARK: -
+// MARK: - Extension AuthTextField
 
 extension AuthTextField {
     

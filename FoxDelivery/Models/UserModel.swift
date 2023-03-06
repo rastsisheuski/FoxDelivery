@@ -12,4 +12,5 @@ struct UserModel {
     var email: String = ""
     var phoneNumber: String = ""
     var password: String = ""
+    var currentBasket: [String] = [""]
 }

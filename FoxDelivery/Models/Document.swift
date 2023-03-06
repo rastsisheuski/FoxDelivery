@@ -10,7 +10,7 @@ import Foundation
 // MARK: -
 // MARK: - Struct For parsing data from Firebase
 
-struct DocumentModel {
+struct FireBaseDocumentModel {
     let nameField: String
     let volumeField: String
     let priceField: String
